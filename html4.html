@@ -11,7 +11,14 @@
             robotArm.loadLevel("exercise 11");
             
             // Jou instructies volgen hier
-           
+               robotArm.moveRight();
+               robotArm.grab();
+               robotArm.scan();
+            while(local.block = 'white'){
+               robotArm.moveRight();
+               robotArm.drop();
+           }
+        
             // De door jou opgegeven instructies uitvoeren
             robotArm.run();
         </script>
