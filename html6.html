@@ -11,17 +11,38 @@
             robotArm.randomLevel( 1, 8);
             
             // Jou instructies volgen hier
+            /*
           for(var a = 1; a <= 9; a++){
             for(var i = 1; i <= a; i++){
               robotArm.grab();
+              robotArm.scan();
+
               robotArm.moveRight();
+
           }
           robotArm.drop();
           for(var k = 1; k <= i; k++){
             robotArm.moveLeft();
           }
           
+          console.log(robotArm.scan());
         }
+          */
+          for(var i = 1; i < 9; i++) {
+            robotArm.grab();
+            if(robotArm.scan() != null) {
+              for(var j = 0; j < i; j++) {
+                robotArm.moveRight();
+              }
+              robotArm.drop();
+              for(var j = 0; j < i; j++) {
+                robotArm.moveLeft();
+              }
+            } else {
+              break;
+            }
+          }  
+        
         
          
             // De door jou opgegeven instructies uitvoeren
