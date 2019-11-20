@@ -11,20 +11,19 @@
             robotArm.randomLevel( 1, 8);
             
             // Jou instructies volgen hier
-          for(var i = 1; i < 9; i++) {
-            robotArm.grab();
-            if(robotArm.scan() != null) {
-              for(var j = 0; j < i; j++) {
-                robotArm.moveRight();
-              }
-              robotArm.drop();
-              for(var j = 0; j < i; j++) {
-                robotArm.moveLeft();
-              }
-            } else {
-              break;
-            }
-          }  
+          var loop = 0;
+          robotArm.grab();
+        while(robotArm.scan() != null){
+          for(i=0;i<=loop;i++){
+            robotArm.moveRight();
+          }
+          robotArm.drop();
+          for(i=0;i<=loop;i++){
+            robotArm.moveLeft();
+          }
+          loop += 1;
+          robotArm.grab();
+        }
             // De door jou opgegeven instructies uitvoeren
             robotArm.run();
         </script>
